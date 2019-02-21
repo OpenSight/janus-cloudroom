@@ -6,7 +6,7 @@ janus-mixroom is a videoconferencing SFU plugin of Janus, which can mix all AV s
 To install it, you'll need to satisfy the following dependencies:
 
 * [Janus](https://janus.conf.meetecho.com/)
-* [FFmpeg](https://janus.conf.meetecho.com/) (2.8.x version must used, API of later version has been changed)
+* [FFmpeg](https://janus.conf.meetecho.com/) (2.8.x version must be used, API of later version has been changed)
 
 
 ## Compile
