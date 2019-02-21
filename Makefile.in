@@ -413,6 +413,8 @@ plugin_LTLIBRARIES = $(NULL) $(am__append_1)
 SUBDIRS = html
 dist_html_DATA = README.md
 
+# core libraries
+
 # Plugins
 plugins_cflags = \
 	$(AM_CFLAGS) \

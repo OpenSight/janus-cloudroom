@@ -37,17 +37,13 @@ dist_html_DATA = README.md
 	$< > $@ || rm $@
 
 
-
-
-
-
-
-
 .PHONY: FORCE
 FORCE:
 
 
-
+##
+# core libraries
+##
 
 ##
 # Plugins
@@ -61,10 +57,6 @@ plugins_cflags = \
 plugins_libadd = \
 	$(PLUGINS_LIBS) \
 	$(NULL)
-
-
-
-
 
 if ENABLE_PLUGIN_MIXROOM
 plugin_LTLIBRARIES += plugins/libjanus_mixroom.la
