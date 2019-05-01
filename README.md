@@ -1,6 +1,8 @@
 # janus-mixroom
 janus-mixroom is a videoconferencing SFU plugin of Janus, which can mix all AV streams in a room and re-publish it to another media server. It's derived from the official videoroom plugin, so that it owns almost the same interfaces with videoroom, and the new stream mix interface as well.  In addition to videoconferencing SFU like video room, Janus-mixroom also implements the functions of stream decoding, mixing, encoding and re-publishing based on FFmpeg 2.8.x(http://ffmpeg.org/).  
 
+**this project is under development now, it's unfinished. don't used me.**
+
 ## Dependencies
 
 To install it, you'll need to satisfy the following dependencies:
