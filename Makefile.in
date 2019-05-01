@@ -79,9 +79,9 @@ PRE_UNINSTALL = :
 POST_UNINSTALL = :
 build_triplet = @build@
 host_triplet = @host@
-@ENABLE_PLUGIN_MIXROOM_TRUE@am__append_1 = plugins/libjanus_mixroom.la
-@ENABLE_PLUGIN_MIXROOM_TRUE@am__append_2 = conf/janus.plugin.mixroom.jcfg.sample
-@ENABLE_PLUGIN_MIXROOM_TRUE@am__append_3 = conf/janus.plugin.mixroom.jcfg.sample
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@am__append_1 = plugins/libjanus_cloudroom.la
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@am__append_2 = conf/janus.plugin.cloudroom.jcfg.sample
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@am__append_3 = conf/janus.plugin.cloudroom.jcfg.sample
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) \
@@ -137,24 +137,24 @@ am__installdirs = "$(DESTDIR)$(plugindir)" "$(DESTDIR)$(confdir)" \
 LTLIBRARIES = $(plugin_LTLIBRARIES)
 am__DEPENDENCIES_1 =
 am__DEPENDENCIES_2 = $(am__DEPENDENCIES_1)
-@ENABLE_PLUGIN_MIXROOM_TRUE@plugins_libjanus_mixroom_la_DEPENDENCIES =  \
-@ENABLE_PLUGIN_MIXROOM_TRUE@	$(am__DEPENDENCIES_2)
-am__plugins_libjanus_mixroom_la_SOURCES_DIST =  \
-	plugins/janus_mixroom.c
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@plugins_libjanus_cloudroom_la_DEPENDENCIES =  \
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@	$(am__DEPENDENCIES_2)
+am__plugins_libjanus_cloudroom_la_SOURCES_DIST =  \
+	plugins/janus_cloudroom.c
 am__dirstamp = $(am__leading_dot)dirstamp
-@ENABLE_PLUGIN_MIXROOM_TRUE@am_plugins_libjanus_mixroom_la_OBJECTS = plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo
-plugins_libjanus_mixroom_la_OBJECTS =  \
-	$(am_plugins_libjanus_mixroom_la_OBJECTS)
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@am_plugins_libjanus_cloudroom_la_OBJECTS = plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo
+plugins_libjanus_cloudroom_la_OBJECTS =  \
+	$(am_plugins_libjanus_cloudroom_la_OBJECTS)
 AM_V_lt = $(am__v_lt_@AM_V@)
 am__v_lt_ = $(am__v_lt_@AM_DEFAULT_V@)
 am__v_lt_0 = --silent
 am__v_lt_1 = 
-plugins_libjanus_mixroom_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
+plugins_libjanus_cloudroom_la_LINK = $(LIBTOOL) $(AM_V_lt) --tag=CC \
 	$(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=link $(CCLD) \
-	$(plugins_libjanus_mixroom_la_CFLAGS) $(CFLAGS) \
-	$(plugins_libjanus_mixroom_la_LDFLAGS) $(LDFLAGS) -o $@
-@ENABLE_PLUGIN_MIXROOM_TRUE@am_plugins_libjanus_mixroom_la_rpath =  \
-@ENABLE_PLUGIN_MIXROOM_TRUE@	-rpath $(plugindir)
+	$(plugins_libjanus_cloudroom_la_CFLAGS) $(CFLAGS) \
+	$(plugins_libjanus_cloudroom_la_LDFLAGS) $(LDFLAGS) -o $@
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@am_plugins_libjanus_cloudroom_la_rpath =  \
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@	-rpath $(plugindir)
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -189,8 +189,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(plugins_libjanus_mixroom_la_SOURCES)
-DIST_SOURCES = $(am__plugins_libjanus_mixroom_la_SOURCES_DIST)
+SOURCES = $(plugins_libjanus_cloudroom_la_SOURCES)
+DIST_SOURCES = $(am__plugins_libjanus_cloudroom_la_SOURCES_DIST)
 RECURSIVE_TARGETS = all-recursive check-recursive cscopelist-recursive \
 	ctags-recursive dvi-recursive html-recursive info-recursive \
 	install-data-recursive install-dvi-recursive \
@@ -425,10 +425,10 @@ plugins_libadd = \
 	$(PLUGINS_LIBS) \
 	$(NULL)
 
-@ENABLE_PLUGIN_MIXROOM_TRUE@plugins_libjanus_mixroom_la_SOURCES = plugins/janus_mixroom.c
-@ENABLE_PLUGIN_MIXROOM_TRUE@plugins_libjanus_mixroom_la_CFLAGS = $(plugins_cflags)
-@ENABLE_PLUGIN_MIXROOM_TRUE@plugins_libjanus_mixroom_la_LDFLAGS = $(plugins_ldflags)
-@ENABLE_PLUGIN_MIXROOM_TRUE@plugins_libjanus_mixroom_la_LIBADD = $(plugins_libadd)
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@plugins_libjanus_cloudroom_la_SOURCES = plugins/janus_cloudroom.c
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@plugins_libjanus_cloudroom_la_CFLAGS = $(plugins_cflags)
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@plugins_libjanus_cloudroom_la_LDFLAGS = $(plugins_ldflags)
+@ENABLE_PLUGIN_CLOUDROOM_TRUE@plugins_libjanus_cloudroom_la_LIBADD = $(plugins_libadd)
 all: all-recursive
 
 .SUFFIXES:
@@ -508,11 +508,11 @@ plugins/$(am__dirstamp):
 plugins/$(DEPDIR)/$(am__dirstamp):
 	@$(MKDIR_P) plugins/$(DEPDIR)
 	@: > plugins/$(DEPDIR)/$(am__dirstamp)
-plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo:  \
+plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo:  \
 	plugins/$(am__dirstamp) plugins/$(DEPDIR)/$(am__dirstamp)
 
-plugins/libjanus_mixroom.la: $(plugins_libjanus_mixroom_la_OBJECTS) $(plugins_libjanus_mixroom_la_DEPENDENCIES) $(EXTRA_plugins_libjanus_mixroom_la_DEPENDENCIES) plugins/$(am__dirstamp)
-	$(AM_V_CCLD)$(plugins_libjanus_mixroom_la_LINK) $(am_plugins_libjanus_mixroom_la_rpath) $(plugins_libjanus_mixroom_la_OBJECTS) $(plugins_libjanus_mixroom_la_LIBADD) $(LIBS)
+plugins/libjanus_cloudroom.la: $(plugins_libjanus_cloudroom_la_OBJECTS) $(plugins_libjanus_cloudroom_la_DEPENDENCIES) $(EXTRA_plugins_libjanus_cloudroom_la_DEPENDENCIES) plugins/$(am__dirstamp)
+	$(AM_V_CCLD)$(plugins_libjanus_cloudroom_la_LINK) $(am_plugins_libjanus_cloudroom_la_rpath) $(plugins_libjanus_cloudroom_la_OBJECTS) $(plugins_libjanus_cloudroom_la_LIBADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -522,7 +522,7 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@plugins/$(DEPDIR)/plugins_libjanus_mixroom_la-janus_mixroom.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@plugins/$(DEPDIR)/plugins_libjanus_cloudroom_la-janus_cloudroom.Plo@am__quote@
 
 .c.o:
 @am__fastdepCC_TRUE@	$(AM_V_CC)depbase=`echo $@ | sed 's|[^/]*$$|$(DEPDIR)/&|;s|\.o$$||'`;\
@@ -548,12 +548,12 @@ distclean-compile:
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LTCOMPILE) -c -o $@ $<
 
-plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo: plugins/janus_mixroom.c
-@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(plugins_libjanus_mixroom_la_CFLAGS) $(CFLAGS) -MT plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo -MD -MP -MF plugins/$(DEPDIR)/plugins_libjanus_mixroom_la-janus_mixroom.Tpo -c -o plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo `test -f 'plugins/janus_mixroom.c' || echo '$(srcdir)/'`plugins/janus_mixroom.c
-@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) plugins/$(DEPDIR)/plugins_libjanus_mixroom_la-janus_mixroom.Tpo plugins/$(DEPDIR)/plugins_libjanus_mixroom_la-janus_mixroom.Plo
-@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='plugins/janus_mixroom.c' object='plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo' libtool=yes @AMDEPBACKSLASH@
+plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo: plugins/janus_cloudroom.c
+@am__fastdepCC_TRUE@	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(plugins_libjanus_cloudroom_la_CFLAGS) $(CFLAGS) -MT plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo -MD -MP -MF plugins/$(DEPDIR)/plugins_libjanus_cloudroom_la-janus_cloudroom.Tpo -c -o plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo `test -f 'plugins/janus_cloudroom.c' || echo '$(srcdir)/'`plugins/janus_cloudroom.c
+@am__fastdepCC_TRUE@	$(AM_V_at)$(am__mv) plugins/$(DEPDIR)/plugins_libjanus_cloudroom_la-janus_cloudroom.Tpo plugins/$(DEPDIR)/plugins_libjanus_cloudroom_la-janus_cloudroom.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	$(AM_V_CC)source='plugins/janus_cloudroom.c' object='plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(plugins_libjanus_mixroom_la_CFLAGS) $(CFLAGS) -c -o plugins/plugins_libjanus_mixroom_la-janus_mixroom.lo `test -f 'plugins/janus_mixroom.c' || echo '$(srcdir)/'`plugins/janus_mixroom.c
+@am__fastdepCC_FALSE@	$(AM_V_CC@am__nodep@)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(plugins_libjanus_cloudroom_la_CFLAGS) $(CFLAGS) -c -o plugins/plugins_libjanus_cloudroom_la-janus_cloudroom.lo `test -f 'plugins/janus_cloudroom.c' || echo '$(srcdir)/'`plugins/janus_cloudroom.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

@@ -58,14 +58,14 @@ plugins_libadd = \
 	$(PLUGINS_LIBS) \
 	$(NULL)
 
-if ENABLE_PLUGIN_MIXROOM
-plugin_LTLIBRARIES += plugins/libjanus_mixroom.la
-plugins_libjanus_mixroom_la_SOURCES = plugins/janus_mixroom.c
-plugins_libjanus_mixroom_la_CFLAGS = $(plugins_cflags)
-plugins_libjanus_mixroom_la_LDFLAGS = $(plugins_ldflags)
-plugins_libjanus_mixroom_la_LIBADD = $(plugins_libadd)
-conf_DATA += conf/janus.plugin.mixroom.jcfg.sample
-EXTRA_DIST += conf/janus.plugin.mixroom.jcfg.sample
+if ENABLE_PLUGIN_CLOUDROOM
+plugin_LTLIBRARIES += plugins/libjanus_cloudroom.la
+plugins_libjanus_cloudroom_la_SOURCES = plugins/janus_cloudroom.c
+plugins_libjanus_cloudroom_la_CFLAGS = $(plugins_cflags)
+plugins_libjanus_cloudroom_la_LDFLAGS = $(plugins_ldflags)
+plugins_libjanus_cloudroom_la_LIBADD = $(plugins_libadd)
+conf_DATA += conf/janus.plugin.cloudroom.jcfg.sample
+EXTRA_DIST += conf/janus.plugin.cloudroom.jcfg.sample
 endif
 
 

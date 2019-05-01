@@ -1,4 +1,4 @@
-AC_INIT([Janus MixRoom Plugin],[0.0.1],[https://github.com/jamken/janus-mixroom],[janus-mixroom],[https://www.qulubo.net])
+AC_INIT([Janus CloudRoom Plugin],[0.1.0],[https://github.com/jamken/janus-mixroom],[janus-mixroom],[https://www.qulubo.net])
 AC_LANG(C)
 
 AC_CONFIG_AUX_DIR([autoconf])
@@ -133,14 +133,14 @@ PKG_CHECK_MODULES([PLUGINS],
 
 
 
-AC_ARG_ENABLE([plugin-mixroom],
-              [AS_HELP_STRING([--disable-plugin-mixroom],
-                              [Disable mixroom plugin])],
-              [AS_IF([test "x$enable_plugin_mixroom" != "xyes"],
-                     [enable_plugin_mixroom=no])],
-              [enable_plugin_mixroom=yes])
+AC_ARG_ENABLE([plugin-cloudroom],
+              [AS_HELP_STRING([--disable-plugin-cloudroom],
+                              [Disable cloudroom plugin])],
+              [AS_IF([test "x$enable_plugin_cloudroom" != "xyes"],
+                     [enable_plugin_cloudroom=no])],
+              [enable_plugin_cloudroom=yes])
 
-AM_CONDITIONAL([ENABLE_PLUGIN_MIXROOM], [test "x$enable_plugin_mixroom" = "xyes"])
+AM_CONDITIONAL([ENABLE_PLUGIN_CLOUDROOM], [test "x$enable_plugin_cloudroom" = "xyes"])
 
 
 JANUS_MANUAL_LIBS+=" -pthread"
@@ -161,24 +161,24 @@ AC_OUTPUT
 echo
 echo "Compiler:                  $CC"
 echo "Plugins:"
-AM_COND_IF([ENABLE_PLUGIN_MIXROOM],
-	[echo "    Mix Room:            yes"],
-	[echo "    Mix Room:            no"])
+AM_COND_IF([ENABLE_PLUGIN_CLOUDROOM],
+	[echo "    Cloud Room:            yes"],
+	[echo "    Cloud Room:            no"])
 echo 
 
 
 AC_MSG_NOTICE([Configure path:  
  
-janus-mixroom version .................... : $PACKAGE_VERSION
-janus-mixroom Install prefix ............. : $prefix
-janus-mixroom exec prefix ................ : $exec_prefix
-janus-mixroom library path ............... : $libdir
-janus-mixroom include path ............... : $includedir
-janus-mixroom program path ............... : $bindir
-janus-mixroom data path .................. : $datarootdir
-janus-mixroom conf path .................. : $sysconfdir
+janus-cloudroom version .................... : $PACKAGE_VERSION
+janus-cloudroom Install prefix ............. : $prefix
+janus-cloudroom exec prefix ................ : $exec_prefix
+janus-cloudroom library path ............... : $libdir
+janus-cloudroom include path ............... : $includedir
+janus-cloudroom program path ............... : $bindir
+janus-cloudroom data path .................. : $datarootdir
+janus-cloudroom conf path .................. : $sysconfdir
 ])    
     
 echo
-echo "If this configuration is ok for you, do a 'make' to start building Janus-mixroom. A 'make install' will install janus-mixroom plugin to the specified prefix(must be the same with Janus）. Finally, a 'make configs' will install some sample configuration files too (something you'll only want to do the first time, though)."
+echo "If this configuration is ok for you, do a 'make' to start building Janus-cloudroom. A 'make install' will install janus-cloudroom plugin to the specified prefix(must be the same with Janus）. Finally, a 'make configs' will install some sample configuration files too (something you'll only want to do the first time, though)."
 echo
