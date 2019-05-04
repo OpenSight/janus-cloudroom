@@ -10,38 +10,33 @@
  * \page cloudroom CloudRoom plugin documentation
  * This is a Janus plugin implementing a cloud-based video conferencing SFU
  * (Selective Forwarding Unit) which is derived from the native videoroom plugin.
- * In addition to the videoroom plugin, the cloudroom set up a cluster of multiple JANUS node, 
- * In which a single room can be across multi servers. That means there can be much more peers 
- * (as a publisher or just a receive-only participant) joining into the same room at the same time
- * for this cloudroom plugin. Also, we can support more peers by adding new JANUS node to the 
- * cluster.
- * This room is also based on a Publish/Subscribe pattern. Each peer can publish his/her own 
- * live audio/video feed to any node of the cluster, other participants can query all active 
- * streams in the room and know which node they publish to. Then the other participants would 
- * attach to the corresponding nodes to subscribe the streams on it. 
- * each peer (on web) in a room would communicate with multi JANUS server at the same time 
- * through the corresponding API. In this case, the peer must keep alive with these JANUS 
- * instances, and receive asynchronous events from them. Also, the peer would set up multi 
- * WebRTC PeerConnections with 
+ * In addition to the videoroom plugin, the cloudroom set up a cluster composed of 
+ * multiple JANUS node, In which a single video conferencing room can be served by 
+ * multi JANUS servers. That means there can be much more peers (as a publisher or 
+ * just a receive-only participant) joining into the same room at the same time
+ * for this cloudroom plugin. Also, we can support more peers by adding new JANUS 
+ * node to the cluster.
+ * This room is also based on a Publish/Subscribe pattern. Each peer can publish 
+ * his/her own live audio/video feed to any node of the cluster, other participants 
+ * can query all active streams in the room and check out which node they publish to. 
+ * Then the other participants would attach to the corresponding nodes to subscribe 
+ * the streams on it. Each peer (for web) in a room shall communicate with multi JANUS 
+ * server and create one session per server at the same time through the this plugin's 
+ * API. In this case, the peer should keep alive with these sessions and receive 
+ * asynchronous events on them. On the other hand, the peer also shall establish several 
+ * different WebRTC PeerConnections with these JANUS server, 1 for publishing and N-1 
+ * for subscriptions from other peers. 
  *
- * Considering that this plugin allows for several different WebRTC PeerConnections
- * to be on at the same time for the same peer (specifically, each peer
- * potentially has 1 PeerConnection on for publishing and N on for subscriptions
- * from other peers), each peer may need to attach several times to the same
- * plugin for every stream: this means that each peer needs to have at least one
- * handle active for managing its relation with the plugin (joining a room,
- * leaving a room, muting/unmuting, publishing, receiving events), and needs
- * to open a new one each time he/she wants to subscribe to a feed from
- * another publisher participant. The handle used for a subscription,
- * however, would be logically a "slave" to the master one used for
- * managing the room: this means that it cannot be used, for instance,
- * to unmute in the room, as its only purpose would be to provide a
- * context in which creating the recvonly PeerConnection for the
- * subscription to an active publisher participant.
- *
+ * The foundamental of JANUS cluster implemented by this plugin is based on the Redis. 
+ * Different JANUS nodes share the room state, session state and etc through the central 
+ * Redis database. When a peer query the state of room or session states of the room, 
+ * this JANUS plugin would query the Redis and return the result to the peer. On the other 
+ * hand, when a peer become active, the corresponding JANUS node would broadcast a 
+ * notification message to other JANUS nodes through Redis so that all the peer in the same
+ * room would receive this event.
  *
  * Rooms to make available are listed in the plugin configuration file.
- * A pre-filled configuration file is provided in \c conf/janus.plugin.videoroom.jcfg
+ * A pre-filled configuration file is provided in \c conf/janus.plugin.cloudroom.jcfg
  * and includes a demo room for testing. The same plugin is also used
  * dynamically (that is, with rooms created on the fly via API) in the
  * Screen Sharing demo as well.
